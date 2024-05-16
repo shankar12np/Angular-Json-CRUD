@@ -1,0 +1,39 @@
+{
+  "employee": [
+    {
+      "id": "9",
+      "name": "Manu",
+      "faculty": "IT"
+    },
+    {
+      "id": "11",
+      "name": "Ram",
+      "faculty": "IT"
+    },
+    {
+      "id": "1",
+      "name": "Kamal Saru",
+      "faculty": "Computer Science Updated !"
+    },
+    {
+      "id": "2",
+      "name": "Shankar Pandey",
+      "faculty": "Accounting"
+    },
+    {
+      "id": "11",
+      "name": "Shankar Pandey",
+      "faculty": "Economics"
+    },
+    {
+      "id": "8",
+      "name": "Kumar KC",
+      "faculty": "Art"
+    },
+    {
+      "id": "111",
+      "name": "Saru",
+      "faculty": "IT"
+    }
+  ]
+}

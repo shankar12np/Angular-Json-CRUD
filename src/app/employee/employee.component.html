@@ -1,0 +1,69 @@
+<div class="container mt-5">
+  <div class="txt text-center">
+    <h3>Employee Portal</h3>
+    <form class="employee-form" (submit)="addEmployee(newEmployee)">
+      <div class="form-group">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" class="form-control" required [(ngModel)]="newEmployee.id">
+      </div>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" class="form-control" required [(ngModel)]="newEmployee.name">
+      </div>
+      <div class="form-group">
+        <label for="faculty">Faculty:</label>
+        <input type="text" id="faculty" name="faculty" class="form-control" required [(ngModel)]="newEmployee.faculty">
+      </div>
+      <button type="submit" class="btn btn-primary">Add Employee</button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div class="container mt-5">
+  <div class="txt text-center">
+    <h3>Employees</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Faculty</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through each employee -->
+        <tr *ngFor="let emp of employee" class="employee-item">
+          <td>{{ emp.id }}</td>
+          <td>
+            <!-- Use ngIf to toggle between input field and text display based on edit mode -->
+            <ng-container *ngIf="emp.editMode; else displayMode">
+              <input type="text" [(ngModel)]="emp.name">
+            </ng-container>
+            <ng-template #displayMode>
+              {{ emp.name }}
+            </ng-template>
+          </td>
+          <td>
+            <!-- Use ngIf to toggle between input field and text display based on edit mode -->
+            <ng-container *ngIf="emp.editMode; else displayMode2">
+              <input type="text" [(ngModel)]="emp.faculty">
+            </ng-container>
+            <ng-template #displayMode2>
+              {{ emp.faculty }}
+            </ng-template>
+          </td>
+          <td>
+            <!-- Button to toggle edit mode -->
+            <button class="btn btn-primary" (click)="toggleEditMode(emp)">Edit</button>
+            <!-- Button to save changes -->
+            <button class="btn btn-success" (click)="updateEmployee(emp)" *ngIf="emp.editMode">Save</button>
+            <!-- Button to delete employee -->
+            <button class="btn btn-danger" (click)="deleteEmployee(emp)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
